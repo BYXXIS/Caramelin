@@ -2,121 +2,106 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Caramelin | Tienda</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Productos Importados</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- MENÚ SUPERIOR -->
-    <header>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="header-container">
         <div class="logo">
-            <h1><i class="fas fa-globe-americas"></i> IMPORTADORA FAMILIAR</h1>
-            <p>Productos de calidad internacional</p>
+            <img src="2.png" alt="Caramelin">
+            <span>Caramelin</span>
         </div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Quiénes Somos</a>
+
+        <nav class="nav">
             <a href="#productos">Productos</a>
             <a href="#contacto">Contacto</a>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <!-- SECCIÓN PRINCIPAL -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h2>Productos Importados Directos</h2>
-            <p>Calidad garantizada | Mayor y menor | Envíos a todo el país</p>
-            <a href="#productos" class="btn">Ver Catálogo</a>
-        </div>
-    </section>
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-overlay"></div>
 
-    <!-- QUIÉNES SOMOS -->
-    <section id="nosotros" class="section">
-        <h2>Quiénes Somos</h2>
-        <div class="nosotros-content">
-            <div class="texto">
-                <h3>Una empresa familiar con 10 años de experiencia</h3>
-                <p>Nos especializamos en importar productos de alta calidad desde Asia, Europa y Estados Unidos.</p>
-                <p><strong>Misión:</strong> Ofrecer los mejores productos al precio más competitivo.</p>
-                <p><strong>Visión:</strong> Ser líderes en importación de productos innovadores.</p>
-            </div>
-            <div class="imagen-placeholder">
-                <i class="fas fa-store fa-5x"></i>
-                <p>Fotos de tu negocio aquí</p>
-            </div>
-        </div>
-    </section>
+    <div class="hero-buttons">
+        <a href="https://wa.me/51958991667" target="_blank" class="btn-hero whatsapp">
+            WhatsApp
+        </a>
+        <a href="#productos" class="btn-hero catalogo">
+            Ver catálogo
+        </a>
+    </div>
+</section>
 
-    <!-- PRODUCTOS -->
-    <section id="productos" class="section">
-        <h2>Nuestros Productos</h2>
-        <div class="productos-grid">
-            <!-- LOS PRODUCTOS SE CARGAN AQUÍ -->
-            <div class="producto">
-                <div class="producto-img">📱</div>
-                <h3>Electrónica</h3>
-                <p>Dispositivos y accesorios</p>
-                <span class="precio">Desde $50</span>
-            </div>
-            <div class="producto">
-                <div class="producto-img">🏠</div>
-                <h3>Hogar</h3>
-                <p>Artículos para el hogar</p>
-                <span class="precio">Desde $25</span>
-            </div>
-            <div class="producto">
-                <div class="producto-img">💄</div>
-                <h3>Belleza</h3>
-                <p>Cuidado personal</p>
-                <span class="precio">Desde $15</span>
-            </div>
-            <div class="producto">
-                <div class="producto-img">🎮</div>
-                <h3>Entretenimiento</h3>
-                <p>Juguetes y juegos</p>
-                <span class="precio">Desde $30</span>
-            </div>
-        </div>
-    </section>
+<!-- ================= PRODUCTOS ================= -->
+<section id="productos" class="productos">
+    <h2>Nuestros productos</h2>
+    <div id="productos-lista" class="productos-grid"></div>
+</section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="section contacto">
-        <h2>Contacto y Ubicación</h2>
-        <div class="contacto-grid">
-            <div class="info">
-                <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
-                <p>[Dirección de tu negocio]</p>
+<!-- ================= CONTACTO ================= -->
+<section id="contacto" class="contacto">
+    <h2>¿Tienes una consulta?</h2>
+    <p>Escríbenos por WhatsApp</p>
+
+    <a href="https://wa.me/51958991667" target="_blank" class="btn-whatsapp grande">
+        Escribir ahora
+    </a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>© Caramelin - Tienda familiar</p>
+</footer>
+
+<!-- ================= MODAL PRODUCTO MEJORADO ================= -->
+<div id="modal-producto" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">✖</span>
+        
+        <div class="modal-grid">
+            <!-- Galería de imágenes -->
+            <div class="modal-galeria">
+                <img id="modal-img-principal" src="" alt="Producto" class="img-principal">
+                <div class="miniaturas" id="miniaturas">
+                    <!-- Las miniaturas se generarán con JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Información del producto -->
+            <div class="modal-info">
+                <h2 id="modal-nombre"></h2>
+                <p class="categoria" id="modal-categoria"></p>
                 
-                <h3><i class="fas fa-clock"></i> Horarios</h3>
-                <p>Lunes a Viernes: 9am - 6pm</p>
-                <p>Sábados: 9am - 2pm</p>
+                <div class="precio-container">
+                    <span class="precio" id="modal-precio"></span>
+                    <span class="precio-anterior" id="modal-precio-anterior"></span>
+                </div>
                 
-                <h3><i class="fas fa-phone"></i> Teléfono</h3>
-                <p>[Número de contacto]</p>
+                <div class="descripcion-detallada">
+                    <h3>Descripción</h3>
+                    <p id="modal-descripcion"></p>
+                </div>
                 
-                <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
-                <a href="https://wa.me/54TU_NUMERO" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
-                </a>
-            </div>
-            <div class="mapa-placeholder">
-                <h3><i class="fas fa-map"></i> Ubicación</h3>
-                <div class="mapa">
-                    <!-- Aquí va el mapa -->
-                    <p>Mapa de Google Maps</p>
-                    <p><small>Instrucciones para agregar mapa después</small></p>
+                <div class="caracteristicas" id="modal-caracteristicas">
+                    <!-- Las características se generarán con JavaScript -->
+                </div>
+                
+                <div class="modal-botones">
+                    <a id="modal-whatsapp" class="btn-whatsapp grande" target="_blank">
+                        <span class="whatsapp-icon">📱</span> Consultar por WhatsApp
+                    </a>
+                    <button class="btn-secundario" onclick="cerrarModal()">Seguir viendo</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>© 2024 Importadora Familiar - Todos los derechos reservados</p>
-        <p>Desarrollado con ❤️ para el negocio familiar</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
